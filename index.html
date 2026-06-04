@@ -202,6 +202,59 @@
     </section>
 
     <!-- TROUBLESHOOTING SECTION -->
+    <section id="troubleshooting" class="reveal">
+        <div class="container">
+            <h2>트러블슈팅 (문제 해결 과정)</h2>
+            <p>프로젝트를 기획하고 개발하면서 마주친 핵심 문제들과 이를 해결한 과정입니다.</p>
+            
+            <div class="accordion">
+                <!-- 아코디언 1 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>1. 토스 페이먼츠 결제 연동 시 보안 인증 에러 해결</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-body">
+                        <p class="problem">🚨 문제 상황:</p>
+                        <p>프론트엔드 환경에서 직접 토스 페이먼츠 결제 승인 API를 호출할 때, 클라이언트 측에서 시크릿 키를 전송해야만 해서 보안 정책 위반 및 CORS 에러가 발생했습니다.</p>
+                        <br>
+                        <p class="problem">💡 해결 과정:</p>
+                        <p>결제 승인 과정은 클라이언트가 아닌 서버 측에서 이루어져야 안전하다는 것을 파악했습니다. Vercel Serverless Functions(서버리스)를 활용하여 API 프록시 역할을 구축했습니다. 클라이언트는 결제창만 띄우고, 실제 결제 승인 요청은 백엔드에서 시크릿 키를 안전하게 담아 토스 서버로 전달하도록 플로우를 재설계하여 완벽히 해결했습니다.</p>
+                    </div>
+                </div>
+
+                <!-- 아코디언 2 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>2. 소셜 로그인(OAuth) 시 새로고침 후 세션 유지 문제</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-body">
+                        <p class="problem">🚨 문제 상황:</p>
+                        <p>네이버, 카카오 등 소셜 로그인 완료 후 리다이렉트되었을 때, 새로고침을 하면 로그인 상태가 바로 풀려버리는 문제가 있어 사용자 경험(UX) 측면에서 매우 치명적이었습니다.</p>
+                        <br>
+                        <p class="problem">💡 해결 과정:</p>
+                        <p>OAuth Provider로부터 전달받은 인증 토큰과 사용자 정보를 브라우저의 <code>localStorage</code>에 암호화하여 저장하는 로직을 추가했습니다. 앱 진입 시 최상단 스크립트에서 토큰 유무를 먼저 검사하여, 유효한 토큰이 있으면 로그인 상태를 자동으로 복구하도록 전역 상태 관리를 개선했습니다.</p>
+                    </div>
+                </div>
+
+                <!-- 아코디언 3 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>3. 장바구니 상태의 실시간 렌더링 지연</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-body">
+                        <p class="problem">🚨 문제 상황:</p>
+                        <p>상품 상세 페이지에서 '장바구니 담기'를 눌렀을 때, 사이드바나 아이콘에 수량이 즉각적으로 업데이트되지 않고 새로고침을 해야만 반영되는 렌더링 동기화 문제가 있었습니다.</p>
+                        <br>
+                        <p class="problem">💡 해결 과정:</p>
+                        <p>React의 상태관리(Redux/Zustand) 없이 바닐라 JavaScript 환경에서 커스텀 이벤트(CustomEvent)를 활용하는 패턴을 기획했습니다. 장바구니 데이터 변화 시 <code>cartUpdated</code> 이벤트를 발생시키고, UI 컴포넌트가 이를 감지해 즉각적으로 데이터를 다시 불러오게 만들어 실시간 동기화를 달성했습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="reveal">
@@ -287,6 +340,34 @@
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
+
+        // 아코디언 (트러블슈팅) 기능
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const item = this.parentElement;
+                const body = item.querySelector('.accordion-body');
+                const icon = this.querySelector('.accordion-icon');
+                
+                // 이미 열려있는 경우 닫기
+                if (this.classList.contains('active')) {
+                    this.classList.remove('active');
+                    body.classList.remove('active');
+                    icon.classList.remove('active');
+                } else {
+                    // 열려있는 다른 아코디언 모두 닫기
+                    document.querySelectorAll('.accordion-header').forEach(h => {
+                        h.classList.remove('active');
+                        h.nextElementSibling.classList.remove('active');
+                        h.querySelector('.accordion-icon').classList.remove('active');
+                    });
+                    
+                    // 현재 클릭한 것 열기
+                    this.classList.add('active');
+                    body.classList.add('active');
+                    icon.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>

@@ -13,10 +13,13 @@
             <a href="#" class="logo">Bubble Mate Portfolio</a>
             <div>
                 <a href="#hero">Home</a>
+                <a href="#candidate-summary">지원자 요약</a>
                 <a href="#overview">프로젝트</a>
                 <a href="#features">기능</a>
+                <a href="#ai-workflow">워크플로우</a>
                 <a href="#design-system">디자인</a>
                 <a href="#responsive">반응형</a>
+                <a href="#interview-qa">Q&A</a>
             </div>
         </div>
     </nav>
@@ -43,6 +46,27 @@
         </div>
     </section>
 
+    <!-- CANDIDATE SUMMARY SECTION -->
+    <section id="candidate-summary" class="reveal">
+        <div class="container">
+            <h2>📌 Candidate Summary (지원자 포지셔닝)</h2>
+            <div class="overview-grid" style="grid-template-columns: 1fr; margin-top: 2rem;">
+                <div class="overview-card" style="border-left: 4px solid var(--blue);">
+                    <h3 style="color: var(--blue); margin-bottom: 1rem;">지원 직무: 웹 퍼블리셔 (Web Publisher) / UI 개발자</h3>
+                    <div style="font-size: 1.05rem; line-height: 1.8; color: var(--dark-navy);">
+                        <p style="margin-bottom: 0.5rem; font-weight: 600; color: var(--dark-navy);">핵심 역량:</p>
+                        <ul style="padding-left: 1.5rem; margin-bottom: 1rem;">
+                            <li>AI 도구(Claude 등)와 최신 워크플로우를 활용한 <strong>초고속 웹 퍼블리싱 및 개발 생산성 극대화</strong></li>
+                            <li>개발자 도구(F12) 기반의 <strong>정교한 CSS/JS 디버깅 및 디테일 레이아웃 보완 능력</strong></li>
+                            <li>280px(갤럭시 폴드)부터 4K 데스크톱까지 대응하는 <strong>5단계 반응형 웹(Responsive Web) 구현</strong></li>
+                            <li>서비스 전체 구조와 사용자 동선을 이해하고 코드로 구현해내는 <strong>기획 이해도 기반 퍼블리싱</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- OVERVIEW SECTION -->
     <section id="overview" class="reveal">
         <div class="container">
@@ -53,8 +77,9 @@
                     <p>2년간의 디테일링 세차 실무 경험을 통해 파악한 <strong>'세차 매니아들의 구매 패턴'</strong>을 기반으로 타겟팅된 B2C 커머스를 기획했습니다. 단순 프론트엔드 구현을 넘어, 장바구니 포기율을 낮추고 <strong>결제 전환율(CVR)을 극대화</strong>하는 실무형 이커머스 플로우(Toss Payments 연동) 구축에 중점을 두었습니다.</p>
                 </div>
                 <div class="overview-card">
-                    <h3>👤 역할 및 AI 협업</h3>
-                    <p><strong>UX/UI 디자인</strong> - 피그마로 와이어프레임 및 고피델리티 디자인<br><strong>AI 협업 (Claude)</strong> - AI와 협력하여 HTML, CSS, JavaScript 프론트엔드 UI 구현</p>
+                    <h3>👤 역할 및 기여도</h3>
+                    <p><strong>기획 및 UI/UX 설계:</strong> 100%<br><strong>웹 퍼블리싱 및 프론트엔드:</strong> 100%</p>
+                    <p style="margin-top: 0.5rem;"><strong>AI 협업 (Claude)</strong> - AI와 협력하여 HTML, CSS, JS 기본 프레임 도출 및 F12 디버깅을 통한 디테일 보완</p>
                 </div>
                 <div class="overview-card">
                     <h3>💻 기술 스택</h3>
@@ -135,6 +160,45 @@
         </div>
     </section>
 
+    <!-- AI WORKFLOW & FILE STRUCTURE SECTION -->
+    <section id="ai-workflow" class="reveal">
+        <div class="container">
+            <h2>🤖 AI 시대 맞춤형 개발 워크플로우</h2>
+            <div class="overview-grid" style="grid-template-columns: 1fr; margin-top: 2rem;">
+                <div class="overview-card">
+                    <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; font-family: monospace; font-size: 1.1rem; color: var(--blue); text-align: center; border: 1px solid var(--border-color); overflow-wrap: break-word; word-break: keep-all;">
+                        [서비스/UI 기획] ──> [AI 프롬프팅으로 80% 뼈대 생성] ──> [F12 디버깅 & CSS/JS 디테일 보완] ──> [완성 및 배포]
+                    </div>
+                    <ul style="padding-left: 1.5rem; line-height: 1.8; color: var(--dark-navy);">
+                        <li style="margin-bottom: 0.5rem;"><strong>생산성 극대화:</strong> AI 도구(Claude 등)를 활용하여 시맨틱 HTML 구조와 CSS 기본 프레임을 빠른 속도로 도출</li>
+                        <li><strong>정교한 오류 수정:</strong>
+                            <ul style="padding-left: 1.5rem; margin-top: 0.5rem; list-style-type: circle;">
+                                <li>모바일 해상도별 padding/margin 오차 디버깅</li>
+                                <li>Toss Payments 결제 모듈 호출 시 모달과의 <code>z-index</code> 레이어 충돌 문제 해결</li>
+                                <li>OAuth 2.0 (Google/Naver/Kakao) 인증 리다이렉트 URI 동적 생성 로직 보완</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 5rem;">📄 파일 구조 및 코드 규모</h2>
+            <div class="overview-grid" style="grid-template-columns: 1fr; margin-top: 2rem;">
+                <div class="overview-card" style="background: #0f172a; color: #e2e8f0;">
+                    <pre style="font-family: monospace; font-size: 1rem; line-height: 1.6; overflow-x: auto;"><code>Bubble_Mate/
+├── index.html          # 메인 쇼핑몰 (홈 + 상세 SPA)
+├── admin.html          # 관리자 대시보드
+├── style.css           # 메인 스타일시트 (5단계 반응형 포함)
+├── admin.css           # 관리자 페이지 전용 스타일시트
+├── app.js              # 쇼핑몰 인터랙션 & 데이터 로직 (1,400+ lines)
+├── products.js         # 상품 및 리뷰 데이터 구조
+├── admin.js            # 관리자 대시보드 CRUD & Chart.js 연동
+└── README.md           # 프로젝트 문서</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- DESIGN SYSTEM SECTION -->
     <section id="design-system" class="reveal">
         <div class="container">
@@ -196,6 +260,23 @@
                 <div class="mockup-container">
                     <!-- IMAGE: 모바일 버전 스크린샷 (375px 해상도) -->
                     <img src="./img/img_002.png" alt="Bubble Mate 모바일 버전 스크린샷" class="mockup-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERVIEW Q&A SECTION -->
+    <section id="interview-qa" class="reveal">
+        <div class="container">
+            <h2>🎯 면접 어필 포인트 (Q&A)</h2>
+            <div class="overview-grid" style="grid-template-columns: 1fr; margin-top: 2rem;">
+                <div class="overview-card" style="border-left: 4px solid var(--purple);">
+                    <h3 style="color: var(--dark-navy); margin-bottom: 1rem; font-size: 1.3rem;">Q. 프로젝트 구현 과정에서 AI를 적극적으로 활용하였나요?</h3>
+                    <div style="background: #f3f4f6; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--blue);">
+                        <p style="font-size: 1.05rem; line-height: 1.8; color: var(--dark-navy); margin: 0; font-style: italic;">
+                            "네, 저는 최신 IT 환경에 맞춰 AI 도구를 보조 개발자로 적극 활용했습니다. AI를 통해 기본 코드 작성 시간을 80% 이상 단축시켰으며, AI가 놓치는 크로스 브라우징 오차, 모바일 스티키 바 디테일, 결제 모듈 레이어 충돌 등은 제가 직접 브라우저 개발자 도구(F12)로 CSS와 JS 소스를 분석하여 디버깅해냈습니다. <strong style="color: var(--blue);">AI를 활용해 압도적인 생산성으로 고품질의 결과물을 빠르게 뽑아내는 것이 저의 핵심경쟁력입니다.</strong>"
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
